@@ -7,7 +7,9 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
+.image-full{
+	width: 100%;
+}
 .parallax {
 	position: absolute;
 	overflow: hidden;
