@@ -104,7 +104,7 @@ jQuery(function($) {
 	});
 
 	// Mobile Nav
-	$('body').on('click', 'nav .navbar-toggle', function() {
+	$('body').on('click', 'nav .navbar-toggle', function(event) {
 		event.stopPropagation();
 		$('.mobile-nav').addClass('active');
 	});
