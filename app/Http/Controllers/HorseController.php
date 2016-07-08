@@ -17,8 +17,9 @@ class HorseController extends Controller
      */
     public function index()
     {
-        $horses = Horse::all();
-        
+        $horses = Horse::orderBy('created_at','DESC')->paginate(5);
+        dd($horses);
+        return view('back.horses.index')->with('horses',$horses);
     }
 
     /**
@@ -40,9 +41,9 @@ class HorseController extends Controller
     public function store(Request $request)
     {
         $extenal_id = date('His'); // i have created my own id for multiple images.
-        $horse = new Horse($request->all());        
-        $horse->external_id=$extenal_id;
+        $horse = new Horse($request->except('images'));
         $horse->save();
+
 
         //Images save.
         $picture = '';
@@ -70,9 +71,9 @@ class HorseController extends Controller
                 $image2->save($thumbPath.'thumb_'.$picture);
                 //save image information on the db.
                 $imageDb = new Image();
-                $imageDb->horse_id = $extenal_id;
                 $imageDb->nombre = $picture;
-                $imageDb->save();                
+                $imageDb->horse()->associate($horse);
+                $imageDb->save();              
             }
         }
         Flash::message('Caballo Creado!');

@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $fillable = ['nombre'];
+	protected $table = 'images';
+    protected $fillable = ['nombre','horse_id'];
 
-    public function horses(){
+    public function horse(){	
     	return $this->belongsTo('App\Horse');
     }
 
