@@ -23,9 +23,17 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function(){
 	Route::get('/', function () {
 	    return view('back.welcome');
 	});
+
+	//Imagenes
 	Route::resource('imagen', 'ImageController');
+
+	//Caballo
 	Route::resource('caballo', 'HorseController');
-	Route::resource('categoria', 'CategoryController');
+	Route::get('caballo/{id}/destroy',[
+		'uses' => 'HorseController@destroy',
+		'as'   => 'admin.caballo.destroy',
+		
+	]);
 	Route::resource('user', 'UserController');
 });
 Route::auth();

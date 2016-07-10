@@ -8,7 +8,7 @@
 					<tr>
 						<th>ID</th>
 						<th>Nombre</th>
-						<th>IMG</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -16,7 +16,11 @@
 					<tr>					
 						<td>{{$horse->id}}</td>
 						<td>{{$horse->nombre}}</td>	
-						<td>{{$horse->images->nombre)}}</td>					
+						<td>
+							<a href="{{route('admin.caballo.destroy',$horse->id)}}" onclick="return confirm('Are you sure?');" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="{{route('admin.caballo.edit',$horse->id)}}" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+						</td>
+
 					</tr>
 				@endforeach
 				</tbody>

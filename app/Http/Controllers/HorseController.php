@@ -18,7 +18,9 @@ class HorseController extends Controller
     public function index()
     {
         $horses = Horse::orderBy('created_at','DESC')->paginate(5);
-        dd($horses);
+        $horses->each(function($horses){
+            $horses->images;
+        });
         return view('back.horses.index')->with('horses',$horses);
     }
 
@@ -43,8 +45,6 @@ class HorseController extends Controller
         $extenal_id = date('His'); // i have created my own id for multiple images.
         $horse = new Horse($request->except('images'));
         $horse->save();
-
-
         //Images save.
         $picture = '';
         if ($request->hasFile('images')) {
@@ -77,7 +77,7 @@ class HorseController extends Controller
             }
         }
         Flash::message('Caballo Creado!');
-        return redirect()->route('admin.caballo.create');
+        return redirect()->route('admin.caballo.index');
     }
 
     /**
@@ -99,7 +99,12 @@ class HorseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $horse = Horse::find($id);
+        $images = new Image();
+        $horse->images->each(function($horse){
+            $horse->images;
+        });
+        return view('back.horses.edit')->with('horse',$horse);
     }
 
     /**
@@ -122,6 +127,9 @@ class HorseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $horse = Horse::find($id);
+        $horse->delete();
+        Flash::error('Caballo eliminado');
+        return redirect()->route('admin.caballo.index');
     }
 }
