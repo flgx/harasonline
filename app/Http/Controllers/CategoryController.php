@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use App\Category;
+use Flash;
 class CategoryController extends Controller
 {
     /**
@@ -15,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('back.categories.index')->with('categories',$categories);
     }
 
     /**
@@ -25,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.categories.create');
     }
 
     /**
@@ -36,7 +38,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category($request->all());
+        $category->save();
+        Flash::message('Categoria Agregada');
+        return redirect()->route('admin.categorias.index');
     }
 
     /**
@@ -58,7 +63,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('back.categories.edit')->with('category',$category);
     }
 
     /**
@@ -70,7 +76,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->fill($request->all());
+        $category->save();
+        Flash::message('Categoria editada.');
+        return redirect()->route('admin.categorias.index');
     }
 
     /**
@@ -79,8 +89,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyCategory(Request $request,$id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();        
+        return response()->json(['msg'=>'success']);
     }
 }

@@ -1,5 +1,9 @@
 jQuery(function($) {
 	"use strict";
+
+
+	//end FLGX code
+
 	// Author Code Here
 
 	var owlPricing;
@@ -7,6 +11,10 @@ jQuery(function($) {
 
 	// Window Load
 	$(window).load(function() {
+			//FLGX code here
+	console.log('hola');
+
+
 		// Preloader
 		$('.intro-tables, .parallax, header').css('opacity', '0');
 		$('.preloader').addClass('animated fadeOut').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {

@@ -32,10 +32,12 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('fonts/eleganticons/et-icons.css')}}">
 	<!-- Main style -->
 	<link rel="stylesheet" type="text/css" href="{{asset('css/cardio.css')}}">
+
+	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-@include('layouts.partials.nav')
+@yield('nav')
 @yield('content')
 @include('layouts.partials.footer')
 <script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>

@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('nav')
+	@include('layouts.partials.nav')
+@endsection
 @section('content')
 	<header id="intro">
 		<div class="container">
@@ -23,93 +26,38 @@
 				<h4 class="light muted">Ultimos caballos agregados</h4>
 			</div>
 			<div class="row services">
+			@foreach($horses as $horse)
+			<a href="{{route('horse.show',$horse->id)}}"></a>
 				<div class="col-md-3">
 					<div class="service">
+					<?php $myimage=''; ?>
+					@foreach($horse->images as $image)
+						<?php $myimage=$image->nombre; ?>
+					@endforeach
 						<div>
-							<img src="img/horses/thumb.jpg" alt="" class="img-responsive icon">
+							<img src="img/horses/thumbs/thumb_{{$myimage}}" alt="" class="img-responsive icon">
 						</div>
 						<h4 class="heading">
-							Estrella Fugaz
-
+							{{$horse->nombre}}
 						</h4>
 						<h4 class="heading plus fa fa-plus fa-2x"></h4>
 						<div class="description">
 							<ul>
-								<li>Categoria: Protillo.</li>
-								<li>Sexo: Hembra.</li>
-								<li>Edad: 5 años.</li>
-								<li>Madre: Cafruna.</li>
-								<li>Padre: Tigre Blanco.</li>
-								<li>Ubicacion: Mar del Plata.</li>
+								<li>Categoria: {{$horse->category->nombre}}.</li>
+								<li>Sexo: {{$horse->sexo}}.</li>
+								<li>Edad: {{$horse->edad}}.</li>
+								<li>Madre: {{$horse->madre}}.</li>
+								<li>Padre: {{$horse->padre}}.</li>
+								<li>Ubicacion: {{$horse->ubicacion}}.</li>
 							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero voluptatem, a expedita quod sunt ut dolore iusto cumque hic!</p>
-						<button class="morebtn btn-primary">Ver Más</button>
-
+							<p>{{ str_limit($horse->descripcion,100)}}</p>
+						<a href="{{route('horse.show',$horse->id)}}">
+							<button class="morebtn btn-primary">Ver Más</button>
+						</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="service">
-						<div>
-							<a href="#">
-								<img src="img/horses/thumb.jpg" alt="" class="img-responsive icon">
-							</a>
-						</div>
-						<h4 class="heading">Estrella Fugaz</h4>
-						<h4 class="heading plus fa fa-plus fa-2x"></h4>
-						<div class="description">
-							<ul>
-								<li>Categoria: Protillo.</li>
-								<li>Sexo: Hembra.</li>
-								<li>Edad: 5 años.</li>
-								<li>MAD Speed</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero voluptatem, a expedita quod sunt ut dolore iusto cumque hic! Illo esse, eligendi dolore sint itaque excepturi ab quod perferendis. Non.</p>
-						<button class="morebtn btn-primary">Ver Más</button>
-
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="service">
-						<div>
-							<img src="img/horses/thumb.jpg" alt="" class="img-responsive icon">
-						</div>
-						<h4 class="heading">Estrella Fugaz</h4>
-						<h4 class="heading plus fa fa-plus fa-2x "></h4>
-						<div class="description">
-							<ul>
-								<li>Categoria: Protillo.</li>
-								<li>Sexo: Hembra.</li>
-								<li>Edad: 5 años.</li>
-								<li>MAD Speed</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero voluptatem, a expedita quod sunt ut dolore iusto cumque hic! Illo esse, eligendi dolore sint itaque excepturi ab quod perferendis. Non.</p>
-						<button class="morebtn btn-primary">Ver Más</button>
-
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="service">
-						<div>
-							<img src="img/horses/thumb.jpg" alt="" class="img-responsive icon">
-						</div>
-						<h4 class="heading">Estrella Fugaz</h4>
-						<h4 class="heading plus fa fa-plus fa-2x"></h4>
-						<div class="description">
-							<ul>
-								<li>Categoria: Protillo.</li>
-								<li>Sexo: Hembra.</li>
-								<li>Edad: 5 años.</li>
-								<li>MAD Speed</li>
-							</ul>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero voluptatem, a expedita quod sunt ut dolore iusto cumque hic! Illo esse, eligendi dolore sint itaque excepturi ab quod perferendis. Non.</p>
-						<button class="morebtn btn-primary">Ver Más</button>
-
-						</div>
-					</div>
-				</div>
+			@endforeach
 			</div>
 		</div>
 		<div class="cut cut-bottom"></div>

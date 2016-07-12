@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use App\Image;
 class ImageController extends Controller
 {
     /**
@@ -79,8 +79,16 @@ class ImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyImage(Request $request,$id)
     {
-        //
+        $image = Image::find($id);
+        $myimage = "img/horses/slider_".$image->nombre;
+        $myimageThumb = "img/horses/thumbs/thumb_".$image->nombre;
+        \File::delete([
+            $myimage,
+            $myimageThumb
+        ]);
+        $image->delete();
+        return response()->json(['msg'=>'success']);
     }
 }

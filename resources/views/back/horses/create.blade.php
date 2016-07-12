@@ -5,11 +5,15 @@
 	    <div class="col-lg-12">
 	    <h1>Agregar Caballo</h1>
 	    <hr>
-	    	{!! Form::open(['route' => 'admin.caballo.store','method' => 'POST','files'=>'true']) !!}
+	    	{!! Form::open(['route' => 'admin.caballos.store','method' => 'POST','files'=>'true']) !!}
 
 	    		<div class="form-group">
 	    			{!! Form::label('nombre','Nombre') !!}
 	    			{!! Form::text('nombre', null,['class'=> 'form-control','placeholder'=>'Nombre Caballo','required']) !!}
+	    		</div>
+	    		<div class="form-group">
+	    			{!! Form::label('category_id','Categoria') !!}
+	    			{!! Form::select('category_id',$categories,null,array('class'=>'form-control')) !!}
 	    		</div>
 	    		<div class="form-group">
 	    			{!! Form::label('edad','Edad') !!}
