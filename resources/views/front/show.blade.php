@@ -21,11 +21,13 @@
 						    <li data-target="#myCarousel" data-slide-to="2"></li>
 						  </ol>
 						  <div class="carousel-inner">
+						  <?php $i=0;?>
 						  @foreach($horse->images as $image)
-						    <div class="item"> 
-						    	{{ HTML::image('img/horses/slider_'.$image->nombre, '$horse->nombre') }}
+						    <div class="item <?php if($i==0){echo 'active';} ?>"> 
+						    	{{ HTML::image('img/horses/slider_'.$image->nombre, $horse->nombre,array('style'=>'width:100%')) }}
 
 						    </div>
+						    <?php $i++; ?>
 						  @endforeach
 						  	<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> 
 						  </div>
@@ -36,20 +38,21 @@
 		<div class="cut cut-bottom"></div>
 	</section>
 	<section class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<h2 >Ficha tecnica</h2>
-			<ul class="list-group">
-				<li class="list-group-item"><h4>Categoria</h4> {{$horse->category->nombre}}</li>
-				<li class="list-group-item"><h4>Sexo</h4> {{$horse->sexo}}</li>
-				<li class="list-group-item"><h4>Edad</h4> {{$horse->edad}}</li>
-				<li class="list-group-item"><h4>Ubicación</h4> {{$horse->ubicacion}} </li>
-				<li class="list-group-item" >
-				<h4>Descripcion</h4>
-					{{$horse->descripcion}}
-				</li>
-			</ul>
+		<div class="row">
+			<div class="col-md-12">
+				<h2 >Ficha tecnica</h2>
+				<ul class="list-group">
+					<li class="list-group-item"><h4>Categoria</h4> {{$horse->category->nombre}}</li>
+					<li class="list-group-item"><h4>Sexo</h4> {{$horse->sexo}}</li>
+					<li class="list-group-item"><h4>Edad</h4> {{$horse->edad}}</li>
+					<li class="list-group-item"><h4>Ubicación</h4> {{$horse->ubicacion}} </li>
+					<li class="list-group-item" >
+						<h4 clas>Descripcion</h4>
+						{{$horse->descripcion}}
+					</li>
+				</ul>
+			</div>
 		</div>
-		</div>
-	</div>
+	</section>
+
 @endsection

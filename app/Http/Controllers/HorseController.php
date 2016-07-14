@@ -70,7 +70,7 @@ class HorseController extends Controller
         $horse->save();
         //associate category with horse
         $category = Category::find($request['category_id']);
-        $category->horse()->associate($horse);
+        $horse->category()->associate($category);
         $picture = '';
         if ($request->hasFile('images')) {
             $files = $request->file('images');
@@ -127,10 +127,11 @@ class HorseController extends Controller
     {
         $horse = Horse::find($id);
         $images = new Image();
+        $categories = Category::orderBy('nombre','ASC')->lists('nombre','id');
         $horse->images->each(function($horse){
             $horse->images;
         });
-        return view('back.horses.edit')->with('horse',$horse);
+        return view('back.horses.edit')->with('horse',$horse)->with('categories',$categories);
     }
 
     /**
@@ -143,7 +144,9 @@ class HorseController extends Controller
     public function update(Request $request, $id)
     {
         $extenal_id = date('His'); // i have created my own id for multiple images.
+        $category = Category::find($request['categoria']);
         $horse = Horse::find($id);
+        $horse->category()->associate($category);
         $horse->fill($request->all());
         $horse->save();
         //Images save.
@@ -190,6 +193,15 @@ class HorseController extends Controller
     public function destroyHorse(Request $request,$id)
     {
         $horse = Horse::find($id);
+        foreach($horse->images as $image){
+            $myimage = "img/horses/slider_".$image->nombre;
+            $myimageThumb = "img/horses/thumbs/thumb_".$image->nombre;
+            \File::delete([
+                $myimage,
+                $myimageThumb
+            ]);
+        }
+        $image->delete();
         $horse->delete();
         return response()->json(['msg'=>'success']);
     }

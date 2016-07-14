@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>Compra tu caballo de carrera aca | Harasonline</title>
 	<meta name="description" content="Compra pura sangre" />
 	<meta name="keywords" content="" />
@@ -37,7 +38,7 @@
 </head>
 
 <body>
-@yield('nav')
+@include('layouts.partials.navSingle')
 @yield('content')
 @include('layouts.partials.footer')
 <script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>

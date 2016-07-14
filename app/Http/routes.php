@@ -11,13 +11,21 @@
 |
 */
 Route::group(['middleware' => 'web'],function(){
+	//Index
 	Route::get('/',[
 		'uses' => 'HorseController@getAllHorses',
 		'as' => 'front.index',
 	]);
+	//Caballo detail
 	Route::get('/caballo/{name}',[
 		'uses' => 'HorseController@show',
 		'as' => 'horse.show',
+	]);	
+
+	//Contacto
+	Route::post('/sendEmail',[
+		'uses' => 'ContactController@sendEmail',
+		'as' => 'contacto.sendEmail',
 	]);
 });
 Route::group(['prefix' => 'admin','middleware' => 'auth'],function(){

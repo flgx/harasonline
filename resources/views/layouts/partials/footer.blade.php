@@ -5,7 +5,7 @@
 				<div class="col-sm-5 text-center-mobile">
 					<h3 class="white">Tenes alguna duda?</h3>
 					<h5 class="light regular color-blue">Contactate con nosotros.</h5>
-					<form action="#" method="POST">
+					{{ Form:: open(array('action' => 'ContactController@sendEmail','method'=>'POST')) }} 
 						<div class="form-group">
 							<label for="phone" class="white">Dejanos tu telefono (requerido)</label>
 							<input type="text" class="form-control col-md-4" placeholder="(011)000-000-000" name="phone" required>
@@ -20,8 +20,9 @@
 							<textarea name="consulta" class="form-control" id="" cols="30" rows="5" placeholder="Dejanos tu consulta"></textarea>
 
 						</div>
-					</form>
-					<a href="#" class="btn btn-blue ripple trial-button">Enviar</a>
+						{{Form::token()}}
+					{{ Form::submit('Enviar', array('class' => 'btn btn-blue ripple trial-button')) }}
+					{{ Form:: close() }}
 				</div>
 				<div class="col-sm-1"></div>
 				<div class="col-sm-6 text-center-mobile">

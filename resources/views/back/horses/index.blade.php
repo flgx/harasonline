@@ -7,6 +7,8 @@
     	</h1>
     	<a href="{{route('admin.caballos.create')}}" class="btn btn-primary">Agregar Caballo</a>
     	<hr>
+
+    	@if(count($horses) > 0)
     	<div class="col-xs-6">
 			<table class="table table-bordered">
 				<thead>
@@ -31,6 +33,9 @@
 				</tbody>
 			</table>
 		</div>
+		@else
+			<h4>No hay caballos. Porfavor, agregue alguno.</h4>
+		@endif
     </div>
 @endsection
 @section('front-js')

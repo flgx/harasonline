@@ -1,5 +1,5 @@
 	<div class="preloader">
-		<img src="img/loader.gif" alt="Preloader image">
+		<img src="{{asset('img/loader.gif')}}" alt="Preloader image">
 	</div>
 		<nav class="navbar-single navbar-fixed-top">
 			<div class="container container-single">
@@ -16,11 +16,11 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right main-nav">
-						<li><a href="#intro">Inicio</a></li>
-						<li><a href="#services">Caballos</a></li>
-						<li><a href="#team">Nosotros</a></li>
-						<li><a href="#pricing">Contacto</a></li>
-						<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Socios</a></li>
+						<li><a id="test" class="nav-item" href="#intro">Inicio</a></li>
+						<li><a class="nav-item" href="#services">Caballos</a></li>
+						<li><a class="nav-item" href="#team">Nosotros</a></li>
+						<li><a class="nav-item" href="#pricing">Contacto</a></li>
+						<li><a class="nav-item" href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Socios</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->

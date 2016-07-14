@@ -12,7 +12,10 @@ jQuery(function($) {
 	// Window Load
 	$(window).load(function() {
 			//FLGX code here
-	console.log('hola');
+			console.log('hola jqx');
+		$('#test').on('click',function(){
+			console.log('hola');
+		});
 
 
 		// Preloader

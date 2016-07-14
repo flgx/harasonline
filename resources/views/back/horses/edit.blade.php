@@ -13,7 +13,7 @@
 		    		</div>
 		    		<div class="form-group">
 		    			{!! Form::label('categoria','Categoria') !!}
-		    			{!! Form::select('categoria',$categories,null,array('class'=>'form-control')) !!}
+		    			{!! Form::select('categoria', $categories, $horse->category->id,array('class'=>'form-control')); !!}
 		    		</div>		    		
 		    		<div class="form-group">
 		    			{!! Form::label('edad','Edad') !!}
