@@ -5,11 +5,11 @@
       <meta name="csrf-token" content="{{ csrf_token() }}">
    </head>
    <body>
-      <h1>Has recibido un nuevo mensaje de "{{$nombre}}"</h1>
-	  <h2>Su email es: {{$email}}"</h2>
+	  <h2>Email remitente:</h2>
+	  <p>{{$email}}</p>
+	  <h2>Telefono:</h2>
+	  <p>{{$phone}}</p>
 	  <h2>Mensaje:</h2>
-	  <p>{{$mensajex}}</p>
-
-
+	  <p>{{$consulta}}</p>
    </body>
 </html>

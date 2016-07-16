@@ -59,8 +59,8 @@
 				@foreach($horse->images as $image)
 				<div class="col-xs-12">
 					{{ HTML::image('img/horses/thumbs/thumb_'.$image->nombre, '$horse->nombre') }}
-					<p class="col-xs-12">
-						<a href="#" class="btn-delete btn btn-danger" data-horse="{{$image->id}}">Delete</a>
+					<p class="">
+						<a href="#" class="btn-delete btn btn-danger" data-horse="{{$image->id}}"><i class="fa fa-trash"></i></a>
 					</p>
 					
 				</div>

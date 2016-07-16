@@ -48,3 +48,44 @@
 <script src="{{asset('js/typewriter.js')}}"></script>
 <script src="{{asset('js/jquery.onepagenav.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/bootstrap-notify.min.js')}}"></script>
+<script>
+var token = $('meta[name="csrf-token"]').attr('content');
+$('#email').on('input', function (e) {
+    if ($(this).val()) //do your check here
+    {
+    	console.log(e);
+        e.preventDefault();
+    }
+});
+	$('.enviarForm').on('click',function(){
+		console.log('click');
+
+		$.ajax({
+			method: 'POST',
+			data: { 
+		        'email': $('#email').val(), 
+		        'phone': $('#phone').val(),
+		        'consulta':$('#consulta').val(),
+		        '_token':token
+    		},
+			url:'{{ url('/sendEmail/') }}',			
+            success: function(msg) {
+                console.log(msg['message']);
+                if(msg['message'] == 'success'){
+                	$.notify({
+						// options
+						message: 'Tu consulta fue enviada. Dentro de 24hs te responderemos a tu email o telefono. Muchas gracias.' 
+					},{
+						// settings
+						type: 'success',
+						placement: {
+							from: 'bottom',
+							align: 'center'
+						}
+					});
+                }
+            }		
+        });
+	});
+</script>

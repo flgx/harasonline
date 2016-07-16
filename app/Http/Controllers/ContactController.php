@@ -20,22 +20,18 @@ class ContactController extends Controller
         );
 
         //Validate data
-        $validator = Validator::make ($data, $rules);
+        $validator = Validator::make($data, $rules);
 
         //If everything is correct than run passes.
         if ($validator -> passes()){
 
-           Mail::send('emails.template',array('nombre'=>$request('nombre'),'email'=>$request('email'),'mensajex'=>$request('consulta')), $data, function($message) use ($data)
-            {
-                //$message->from($data['email'] , $data['first_name']); uncomment if using first name and email fields 
-                $message->from('fraan.mp@gmail.com', 'feedback contact form');
-                //email 'To' field: cahnge this to emails that you want to be notified.                    
-                $message->to('fraan.mp@gmail.com', 'John')->cc('feedback@gmail.com')->subject('feedback form submit');
+        \Mail::send('emails.template', $data, function ($message) {
+            $message->from('info@codedoors.com', 'Francisco Web Developer');
 
-            });
+            $message->to('fraan.mp@gmail.com')->subject('Hola');
+        });
             // Redirect to page
-           return redirect()->route('front.index')
-            ->with('message', 'Your message has been sent. Thank You!');
+           return response()->json(['message' => 'success']);
 
 
             //return View::make('contact');  
