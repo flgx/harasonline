@@ -28,17 +28,13 @@ class ContactController extends Controller
         \Mail::send('emails.template', $data, function ($message) {
             $message->from('info@codedoors.com', 'Francisco Web Developer');
 
-            $message->to('fraan.mp@gmail.com')->subject('Hola');
+            $message->to('fraan.mp@gmail.com')->subject('Mensaje de Harasonline.com');
         });
-            // Redirect to page
-           return response()->json(['message' => 'success']);
-
-
+        // Redirect to page
+        return response()->json(['message' => 'success']);
             //return View::make('contact');  
         }else{
-            //return contact form with errors
-            return redirect()->route('front.index')
-             ->with('error', 'Feedback must contain more than 5 characters. Try Again.');
+            return response()->json(['message' => 'error']);
         }
     }
 }

@@ -40,6 +40,10 @@
 	                    {!! Form::textarea('descripcion', $horse->descripcion,['class' => 'form-control','required']) !!}
 		    		</div>
 		    		<div class="form-group">
+		    			{!! Form::label('video_url','Video') !!}
+		    			{!! Form::text('video_url', $horse->video_url,['class'=> 'form-control','placeholder'=>'Url de YouTube','required']) !!}
+		    		</div>		
+		    		<div class="form-group">
 		    			{!! Form::label('images','Imagenes') !!}
 	                    {!! Form::file('images[]', array('multiple'=>true)) !!}
 		    		</div>
@@ -55,15 +59,21 @@
 	    <div class="col-md-6">
 	    	<h1>Galeria de imágenes</h1>
 		    <hr>
-		    @if(count($horse->images) > 0)
+		    @if(count($horse->images) > 0)	
+		    	<?php
+					$i=0;
+				?>
 				@foreach($horse->images as $image)
 				<div class="col-xs-12">
+					<?php if($i==0){echo '<h1>Imágen principal:</h1>';} ?>
 					{{ HTML::image('img/horses/thumbs/thumb_'.$image->nombre, '$horse->nombre') }}
-					<p class="">
-						<a href="#" class="btn-delete btn btn-danger" data-horse="{{$image->id}}"><i class="fa fa-trash"></i></a>
-					</p>
 					
+					<p class="col-xs-12">
+						<a href="#" class="btn-delete btn btn-danger" data-horse="{{$image->id}}">Delete</a>
+					</p>
+					<?php if($i==0){echo '<hr>';} ?>
 				</div>
+				<?php $i++; ?>
 				@endforeach
 			@else
 				<p>No hay imágenes. Por favor, agregue alguna.</p>	

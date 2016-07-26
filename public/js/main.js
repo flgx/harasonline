@@ -1,14 +1,9 @@
 jQuery(function($) {
 	"use strict";
-
-
 	//end FLGX code
-
 	// Author Code Here
-
 	var owlPricing;
 	var ratio = 2;
-
 	// Window Load
 	$(window).load(function() {
 			//FLGX code here
@@ -16,8 +11,7 @@ jQuery(function($) {
 		$('#test').on('click',function(){
 			console.log('hola');
 		});
-
-
+		
 		// Preloader
 		$('.intro-tables, .parallax, header').css('opacity', '0');
 		$('.preloader').addClass('animated fadeOut').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
@@ -33,7 +27,6 @@ jQuery(function($) {
 			$('.parallax img').css('height', ($(window).height()) + 'px');
 			$('.parallax img').css('width', $('.parallax').height() * ratio + 'px');
 		}
-
 		$('header').height($(window).height() + 80);
 		$('section .cut').each(function() {
 			if ($(this).hasClass('cut-top'))

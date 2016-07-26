@@ -23,7 +23,8 @@ class CreateHorsesTable extends Migration
             $table->string('sexo');
             $table->integer('category_id')->unsigned();
             $table->integer('user_id')->unsigned();
-
+            $table->string('slug');
+            $table->string('video_url');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

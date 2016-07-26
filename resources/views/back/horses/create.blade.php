@@ -40,6 +40,10 @@
                     {!! Form::textarea('descripcion', null,['class' => 'form-control','required']) !!}
 	    		</div>
 	    		<div class="form-group">
+	    			{!! Form::label('video_url','Video Url') !!}
+	    			{!! Form::text('video_url', null,['class'=> 'form-control','placeholder'=>'Url de YouTube','required']) !!}
+	    		</div>
+	    		<div class="form-group">
 	    			{!! Form::label('images','Imagenes') !!}
                     {!! Form::file('images[]', array('multiple'=>true)) !!}
 	    		</div>

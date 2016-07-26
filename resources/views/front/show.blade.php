@@ -39,10 +39,12 @@
 	</section>
 	<section class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-6">
 				<h2 >Ficha tecnica</h2>
 				<ul class="list-group">
 					<li class="list-group-item"><h4>Categoria</h4> {{$horse->category->nombre}}</li>
+					<li class="list-group-item"><h4>Padre</h4> {{$horse->padre}}</li>
+					<li class="list-group-item"><h4>Madre</h4> {{$horse->madre}}</li>
 					<li class="list-group-item"><h4>Sexo</h4> {{$horse->sexo}}</li>
 					<li class="list-group-item"><h4>Edad</h4> {{$horse->edad}}</li>
 					<li class="list-group-item"><h4>Ubicación</h4> {{$horse->ubicacion}} </li>
@@ -51,6 +53,12 @@
 						{{$horse->descripcion}}
 					</li>
 				</ul>
+			</div>
+			<div class="col-md-6">
+				<h2>Video</h2>
+				<div class="embed-responsive embed-responsive-16by9">
+  					<iframe class="embed-responsive-item" src="{{$horse->video_url}}"></iframe>
+				</div>
 			</div>
 		</div>
 	</section>

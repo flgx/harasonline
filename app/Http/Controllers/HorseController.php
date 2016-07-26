@@ -42,6 +42,16 @@ class HorseController extends Controller
         });      
         return view('front.index')->with('horses',$horses);
     }
+    public function getAllHorses2()
+    {
+        $horses = Horse::orderBy('created_at','DESC')->paginate(4);
+        $horses->each(function($horses){
+            $horses->images;
+            $horses->category;
+            $horses->user;
+        });      
+        return view('front.all')->with('horses',$horses);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -111,9 +121,9 @@ class HorseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $horse = Horse::find($id);
+        $horse = Horse::where('slug',$slug)->get()->first();
         return view('front.show')->with('horse',$horse);
     }
 

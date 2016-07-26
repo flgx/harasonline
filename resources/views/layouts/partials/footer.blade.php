@@ -1,13 +1,14 @@
 
-	<footer>
+	<footer id="contacto">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-5 text-center-mobile">
 					<h3 class="white">Tenes alguna duda?</h3>
 					<h5 class="light regular color-blue">Contactate con nosotros.</h5>
+					
 						<div class="form-group">
 							<label for="phone" class="white">Dejanos tu telefono (requerido)</label>
-							<input type="text" class="form-control col-md-4" id="phone" placeholder="(011)000-000-000" name="phone" required>
+							<input type="text" class="form-control col-md-4" id="phone" placeholder="(011)155-500-500" name="phone" required>
 						</div>
 						<div class="form-group">
 							<label for="phone" class="white">Tu email (requerido)</label>
@@ -15,12 +16,13 @@
 
 						</div>
 						<div class="form-group">
-							<label for="phone" class="white">Consulta (opcional)</label>
+							<label for="phone" class="white">Consulta (requerido)</label>
 							<textarea name="consulta" class="form-control" id="consulta" cols="30" rows="5" placeholder="Dejanos tu consulta"></textarea>
 
 						</div>
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<button class="btn btn-blue ripple trial-button enviarForm">Enviar</button>
+						<button class="btn btn-blue ripple trial-button enviarForm col-xs-12">Enviar</button>
+
 				</div>
 				<div class="col-sm-1"></div>
 				<div class="col-sm-6 text-center-mobile">
@@ -39,7 +41,7 @@
 			</div>
 			<div class="row bottom-footer text-center-mobile">
 				<div class="col-sm-8">
-					<p>&copy; 2016 All Rights Reserved. Powered by <a href="http://www.codedoors.com/">Codedoors.com</a></p>
+					<p class="footer-text">&copy; 2016 Todos los derechos reservados. Creador por <a href="http://www.codedoors.com/">Codedoors.com</a></p>
 				</div>
 				<!--
 				<div class="col-sm-4 text-right text-center-mobile">

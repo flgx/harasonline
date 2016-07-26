@@ -16,8 +16,12 @@ Route::group(['middleware' => 'web'],function(){
 		'uses' => 'HorseController@getAllHorses',
 		'as' => 'front.index',
 	]);
+	Route::get('/caballos-de-carreras',[
+		'uses' => 'HorseController@getAllHorses',
+		'as' => 'front.all',
+	]);
 	//Caballo detail
-	Route::get('/caballo/{name}',[
+	Route::get('/caballo/{slug}',[
 		'uses' => 'HorseController@show',
 		'as' => 'horse.show',
 	]);	

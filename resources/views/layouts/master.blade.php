@@ -38,7 +38,7 @@
 </head>
 
 <body>
-@include('layouts.partials.navSingle')
+@yield('nav')
 @yield('content')
 @include('layouts.partials.footer')
 <script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
@@ -60,6 +60,7 @@ $('#email').on('input', function (e) {
 });
 	$('.enviarForm').on('click',function(){
 		console.log('click');
+		$('.enviarForm').html("Enviando...<img src='{{asset('img/loading-form.gif')}}'' alt=''>");	
 
 		$.ajax({
 			method: 'POST',
@@ -72,7 +73,9 @@ $('#email').on('input', function (e) {
 			url:'{{ url('/sendEmail/') }}',			
             success: function(msg) {
                 console.log(msg['message']);
+
                 if(msg['message'] == 'success'){
+                	$('.enviarForm').html("Enviado");
                 	$.notify({
 						// options
 						message: 'Tu consulta fue enviada. Dentro de 24hs te responderemos a tu email o telefono. Muchas gracias.' 
@@ -84,8 +87,26 @@ $('#email').on('input', function (e) {
 							align: 'center'
 						}
 					});
+                }else{
+                	$('.enviarForm').html("Enviar");
+                	$.notify({
+						// options
+						message: 'Error: Por favor complete todos los campos e intente nuevamente.' 
+					},{
+						// settings
+						type: 'danger',
+						placement: {
+							from: 'bottom',
+							align: 'center'
+						}
+					});
                 }
             }		
         });
 	});
 </script>
+ <script>
+  $('#myCarousel').carousel({
+   interval: 10000
+  });
+ </script> 
