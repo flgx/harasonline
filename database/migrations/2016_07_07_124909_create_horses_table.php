@@ -25,6 +25,7 @@ class CreateHorsesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('slug');
             $table->string('video_url');
+            $table->float('precio');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

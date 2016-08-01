@@ -44,13 +44,13 @@ class HorseController extends Controller
     }
     public function getAllHorses2()
     {
-        $horses = Horse::orderBy('created_at','DESC')->paginate(4);
+        $horses = Horse::orderBy('created_at','DESC')->paginate(1);
         $horses->each(function($horses){
             $horses->images;
             $horses->category;
             $horses->user;
         });      
-        return view('front.all')->with('horses',$horses);
+        return view('front.show-all')->with('horses',$horses);
     }
 
     /**

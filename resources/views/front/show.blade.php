@@ -57,10 +57,19 @@
 			<div class="col-md-6">
 				<h2>Video</h2>
 				<div class="embed-responsive embed-responsive-16by9">
-  					<iframe class="embed-responsive-item" src="{{$horse->video_url}}"></iframe>
+  					<iframe allowFullScreen class="embed-responsive-item" src="{{$horse->video_url}}"></iframe>
 				</div>
+				<h3>
+				<a href="#contacto"><button type="button" class="btn btn-primary btn-lg">Consulta sobre este caballo</button></h3>
+		
 			</div>
 		</div>
 	</section>
 
+@endsection
+
+@section('front-js')
+<script>
+	$('.products').css({'color','blue !important'});
+</script>
 @endsection

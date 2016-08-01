@@ -18,6 +18,10 @@
 		    		<div class="form-group">
 		    			{!! Form::label('edad','Edad') !!}
 		    			{!! Form::text('edad', $horse->edad,['class'=> 'form-control','placeholder'=>'Edad del Caballo','required']) !!}
+		    		</div>	>		    		
+		    		<div class="form-group">
+		    			{!! Form::label('precio','Precio') !!}
+		    			{!! Form::text('precio', $horse->precio,['class'=> 'form-control','placeholder'=>'Precio del Caballo','required']) !!}
 		    		</div>	    		
 		    		<div class="form-group">
 		    			{!! Form::label('padre','Padre') !!}
@@ -65,14 +69,14 @@
 				?>
 				@foreach($horse->images as $image)
 				<div class="col-xs-12">
-					<?php if($i==0){echo '<h1>Imágen principal:</h1>';} ?>
+					<?php if($i==0){echo '<h1>Imágen principal:</h1> <hr>';} ?>
 					{{ HTML::image('img/horses/thumbs/thumb_'.$image->nombre, '$horse->nombre') }}
 					
-					<p class="col-xs-12">
-						<a href="#" class="btn-delete btn btn-danger" data-horse="{{$image->id}}">Delete</a>
+					<p class="col-xs-12" style="padding-left:0px; margin-top:10px;">
+						<a href="#" class="btn-delete btn btn-danger"  data-horse="{{$image->id}}"><i class="fa fa-trash fa-2x"></i></a>
 					</p>
-					<?php if($i==0){echo '<hr>';} ?>
 				</div>
+				<hr>
 				<?php $i++; ?>
 				@endforeach
 			@else

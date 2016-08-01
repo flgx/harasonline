@@ -8,7 +8,7 @@ class Horse extends Model
 {
     use Sluggable;
 	protected $table = "horses";
-    protected $fillable = ['nombre','edad','descripcion','padre','madre','sexo','ubicacion','category_id','user_id','slug','video_url'];
+    protected $fillable = ['nombre','edad','descripcion','padre','madre','sexo','ubicacion','category_id','user_id','slug','video_url','precio'];
 
     public function images(){
     	return $this->hasMany('App\Image');

@@ -18,7 +18,11 @@
 	    		<div class="form-group">
 	    			{!! Form::label('edad','Edad') !!}
 	    			{!! Form::text('edad', null,['class'=> 'form-control','placeholder'=>'Edad del Caballo','required']) !!}
-	    		</div>	    		
+	    		</div>
+	    		<div class="form-group">
+		    			{!! Form::label('precio','Precio') !!}
+		    			{!! Form::text('precio', null,['class'=> 'form-control','placeholder'=>'Precio del Caballo','required']) !!}
+		    	</div>	   		
 	    		<div class="form-group">
 	    			{!! Form::label('padre','Padre') !!}
 	    			{!! Form::text('padre', null,['class'=> 'form-control','placeholder'=>'Padre del Caballo','required']) !!}

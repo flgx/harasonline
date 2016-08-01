@@ -51,9 +51,10 @@
 								<li>Categoria: {{$horse->category->nombre}}.</li>
 								<li>Sexo: {{$horse->sexo}}.</li>
 								<li>Edad: {{$horse->edad}}.</li>
-								<li>Madre: {{$horse->madre}}.</li>
 								<li>Padre: {{$horse->padre}}.</li>
+								<li>Madre: {{$horse->madre}}.</li>								
 								<li>Ubicacion: {{$horse->ubicacion}}.</li>
+								<li>Precio:${{$horse->precio}}.</li>
 							</ul>
 							<p>{{ str_limit($horse->descripcion,100)}}</p>
 						<a href="{{route('horse.show',$horse->slug)}}">
@@ -63,7 +64,7 @@
 					</div>
 				</div>
 			@endforeach
-					<button class="btn btn-blue ripple trial-button view-all col-xs-12">Ver todos</button>
+				<a href="{{route('horse.showAll')}}"><button class="btn btn-blue ripple trial-button view-all col-xs-12">Ver todos</button></a>
 
 			</div>
 		</div>
@@ -75,20 +76,29 @@
 			<div class="row text-center title">
 				<h2>Acerca de Nosotros</h2>
 			</div>
-			<div class="row ">
-			<div class="col-md-6">
-				<h6>
-					Haras Online fue creado por un grupo de emprendedores marplatenses que decidieron acercarle al mundo del turf la posibilidad de comprar SPC criados en la mejor zona del país. <br/> 
-					Nuestro objetivo es formar parte del lazo que une al comprador con los SPC, facilitando toda la información necesaria (pedigree desarrollado, imágenes de alta calidad y videos) para que su decisión de compra sea segura. 
-					Si desea conocer al animal, concretamos una reunión para su visita, en caso de que no pueda acercarse y desea enviar a alguien de su confianza para verificar la sanidad del producto, también lo puede hacer sin compromiso de compra.
-					Cualquier consulta que quiera hacer no dude en contactarse con nosotros y le daremos una respuesta dentro de las 24hs.
-				</h6>
-				<a href="#contacto"><button class="morebtn btn-primary">Envianos un mensaje</button></a>
-			</div>
-			<div class="col-md-6">
-				<img src="img/about.jpg" alt="" class="img-responsive icon">
-
-			</div>
+			<div class="row">
+				<div class="col-xs-12 col-md-6 about-us">
+					<p>
+						Haras Online fue creado por un grupo de emprendedores marplatenses que decidieron acercarle al mundo del turf la posibilidad de comprar SPC criados en la mejor zona del país. <br/> 
+					</p>
+					<p>
+						Nuestro objetivo es formar parte del lazo que une al comprador con los SPC, facilitando toda la información necesaria (pedigree desarrollado, imágenes de alta calidad y videos) para que su decisión de compra sea segura.
+					</p>					
+					<p>
+						Si desea conocer al animal, concretamos una reunión para su visita, en caso de que no pueda acercarse y desea enviar a alguien de su confianza para verificar la sanidad del producto, también lo puede hacer sin compromiso de compra.						
+					</p>
+					<p>
+						Cualquier consulta que quiera hacer no dude en contactarse con nosotros y le daremos una respuesta dentro de las 24hs.
+					</p>
+					<a class="smooth-anchor" href="#contacto"><button class="morebtn btn-primary">Envianos un mensaje</button></a>
+				</div>
+				<div class=" visible-xs"></div>
+				<div class="col-xs-12 col-md-6 top-20 visible-xs">
+					<img src="img/about.jpg" alt="" class="img-responsive icon">
+				</div>
+				<div class="col-xs-12 col-md-6 hidden-xs">
+					<img src="img/about.jpg" alt="" class="img-responsive icon">
+				</div>
 			</div>
 		</div>
 		<div class="cut cut-bottom"></div>

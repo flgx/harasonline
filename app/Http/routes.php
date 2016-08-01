@@ -17,11 +17,11 @@ Route::group(['middleware' => 'web'],function(){
 		'as' => 'front.index',
 	]);
 	Route::get('/caballos-de-carreras',[
-		'uses' => 'HorseController@getAllHorses',
-		'as' => 'front.all',
+		'uses' => 'HorseController@getAllHorses2',
+		'as' => 'horse.showAll',
 	]);
 	//Caballo detail
-	Route::get('/caballo/{slug}',[
+	Route::get('/caballo-de-carreras/{slug}',[
 		'uses' => 'HorseController@show',
 		'as' => 'horse.show',
 	]);	

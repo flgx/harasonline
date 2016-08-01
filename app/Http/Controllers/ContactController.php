@@ -26,7 +26,7 @@ class ContactController extends Controller
         if ($validator -> passes()){
 
         \Mail::send('emails.template', $data, function ($message) {
-            $message->from('info@codedoors.com', 'Francisco Web Developer');
+            $message->from('fraan.mp@gmail.com', 'Haras Online');
 
             $message->to('fraan.mp@gmail.com')->subject('Mensaje de Harasonline.com');
         });
