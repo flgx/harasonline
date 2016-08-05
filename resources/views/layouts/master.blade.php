@@ -80,15 +80,15 @@
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/579f4bbdd2d8e3987f8c98d3/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+	(function(){
+	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+	s1.async=true;
+	s1.src='https://embed.tawk.to/579f4bbdd2d8e3987f8c98d3/default';
+	s1.charset='UTF-8';
+	s1.setAttribute('crossorigin','*');
+	s0.parentNode.insertBefore(s1,s0);
+	})();
 </script>
 <!--End of Tawk.to Script-->
 </head>
@@ -123,6 +123,11 @@ $(document).ready( function() {
     $(".ui-loader").hide();
 });
 </script>
+<script>
+	$(document).bind("mobileinit", function() {
+  		$.mobile.ajaxEnabled = false;
+	});
+</script>
 <script src="{{asset('js/jquery.mobile-1.4.5.min.js')}}"></script>
 <!-- Latest compiled and minified JavaScript -->
 
@@ -131,9 +136,6 @@ $(document).ready( function() {
 
 	var token = $('meta[name="csrf-token"]').attr('content');
 	$(document).on("pagecreate","#harasonline",function(){
-		$('.buttonTest').on('tap',function(){
-			alert('a');
-		});
 	$('.enviarForm').on('tap',function(){
 		$('.enviarForm').html("Enviando...<img src='{{asset('img/loading-form.gif')}}'' alt=''>");	
 		$.ajax({

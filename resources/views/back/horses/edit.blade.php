@@ -18,7 +18,7 @@
 		    		<div class="form-group">
 		    			{!! Form::label('edad','Edad') !!}
 		    			{!! Form::text('edad', $horse->edad,['class'=> 'form-control','placeholder'=>'Edad del Caballo','required']) !!}
-		    		</div>	>		    		
+		    		</div>		    		
 		    		<div class="form-group">
 		    			{!! Form::label('precio','Precio') !!}
 		    			{!! Form::text('precio', $horse->precio,['class'=> 'form-control','placeholder'=>'Precio del Caballo','required']) !!}
@@ -37,7 +37,7 @@
 		    		</div>	    		
 		    		<div class="form-group">
 		    			{!! Form::label('sexo','Sexo') !!}
-		    			{!! Form::select('sexo',array('macho' => 'Macho', 'hembra' => 'Hembra'),$horse->sexo,array('class'=>'form-control')) !!}
+		    			{!! Form::select('sexo',array('MACHO' => 'MACHO', 'HEMBRA' => 'HEMBRA'),$horse->sexo,array('class'=>'form-control')) !!}
 		    		</div>
 		    		<div class="form-group">
 		    			{!! Form::label('descripcion','Descripcion') !!}

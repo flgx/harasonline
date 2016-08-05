@@ -56,7 +56,7 @@
 								<li>Ubicacion: {{$horse->ubicacion}}.</li>
 								<li>Precio:${{$horse->precio}}.</li>
 							</ul>
-							<p>{{ str_limit($horse->descripcion,100)}}</p>
+							<p>{{ str_limit($horse->descripcion,50)}}</p>
 						<a href="{{route('horse.show',$horse->slug)}}">
 							<button class="morebtn btn-primary">Ver Más</button>
 						</a>

@@ -37,7 +37,7 @@
 	    		</div>	    		
 	    		<div class="form-group">
 	    			{!! Form::label('sexo','Sexo') !!}
-	    			{!! Form::select('sexo',array('macho' => 'Macho', 'hembra' => 'Hembra'),null,array('class'=>'form-control')) !!}
+	    			{!! Form::select('sexo',array('MACHO' => 'MACHO', 'HEMBRA' => 'HEMBRA'),null,array('class'=>'form-control')) !!}
 	    		</div>
 	    		<div class="form-group">
 	    			{!! Form::label('descripcion','Descripcion') !!}

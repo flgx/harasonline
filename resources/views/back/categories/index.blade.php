@@ -9,7 +9,7 @@
     		</a>
     	</div>
     	<hr>
-    	<div class="col-xs-6">
+    	<div class="">
 			<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -24,17 +24,22 @@
 						<td>{{$category->id}}</td>
 						<td>{{$category->nombre}}</td>	
 						<td>
-							<a href="#" onclick="return confirm('Estas seguro?');" data-categoryid="{{$category->id}}" class="btn btn-danger btn-delete-category">
-								<i class="fa fa-trash"></i>
-							</a>
 							<a href="{{route('admin.categorias.edit',$category->id)}}" class="btn btn-warning">
 								<i class="fa fa-pencil"></i>
-							</a>
+							</a>							
+							@if(Auth::user()->type == 'admin')
+								<a href="#" onclick="return confirm('Estas seguro?');" data-categoryid="{{$category->id}}" class="btn btn-danger btn-delete-category">
+									<i class="fa fa-trash"></i>
+								</a>
+							@endif
 						</td>
 					</tr>
 				@endforeach
 				</tbody>
 			</table>
+			<div class="text-center">
+				{!! $categories->render() !!}
+			</div>
 		</div>
     </div>
 @endsection

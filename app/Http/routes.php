@@ -34,9 +34,10 @@ Route::group(['middleware' => 'web'],function(){
 });
 Route::group(['prefix' => 'admin','middleware' => 'auth'],function(){
 	//Index
-	Route::get('/', function () {
-	    return view('back.welcome');
-	});
+	Route::get('/',[
+		'uses' => 'HomeController@index',
+		'as' => 'back.welcome',
+	]);
 	//Categorias
 	Route::resource('categorias', 'CategoryController');
 	Route::delete('/categorias/destroyCategory/{id}',[

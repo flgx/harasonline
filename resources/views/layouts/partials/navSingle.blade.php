@@ -17,7 +17,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right main-nav">
 						<li><a id="test" class="nav-item" href="{{url('/')}}" >Inicio</a></li>
-						<li class=""><a class="nav-item products"  href="{{url('/#productos')}}" >Productos</a></li>
+						<li class=""><a class="nav-item products"  href="{{url('/caballos-de-carreras')}}" >Productos</a></li>
 						<li><a class="nav-item"  href="{{url('/#nosotros')}}" >Nosotros</a></li>
 						<li><a class="nav-item"  href="#contacto" >Contacto</a></li>
 					</ul>

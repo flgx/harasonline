@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-
+use App\Horse;
 class HomeController extends Controller
 {
     /**
@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $horses = Horse::orderBy('created_at','DESC')->paginate(5);
+        return view('back.welcome')->with('horses',$horses);
     }
 
 }
