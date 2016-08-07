@@ -43,7 +43,7 @@
 							<img src="img/horses/thumbs/thumb_{{$myimage}}" alt="" class="img-responsive icon">
 						</div>
 						<h4 class="heading">
-							<a  class="title-index" href="{{route('horse.show',$horse->slug)}}">{{$horse->nombre}}</a>
+							{{$horse->nombre}}
 						</h4>
 						<h4 class="heading plus fa fa-plus fa-2x"></h4>
 						<div class="description">
