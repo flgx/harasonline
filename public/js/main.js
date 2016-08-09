@@ -2,9 +2,7 @@ jQuery(function($) {
 	"use strict";
 	//end FLGX code
 	// Author Code Here
-
-
-	  $('a[href*="#"]:not([href="#"])').click(function() {
+	$('a[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -20,11 +18,7 @@ jQuery(function($) {
 	var ratio = 2;
 	// Window Load
 	$(window).load(function() {
-			//FLGX code here
-			console.log('hola jqx');
-		$('#test').on('click',function(){
-			console.log('hola');
-		});
+		//FLGX code here
 		
 		// Preloader
 		$('.intro-tables, .parallax, header').css('opacity', '0');

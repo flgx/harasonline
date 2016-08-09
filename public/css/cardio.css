@@ -5,6 +5,10 @@
 	text-decoration: inherit;
 
 }
+.last-horses-img img{
+	height: 173px;
+	width: 100%;
+}
 html
 {
     width: 100%;

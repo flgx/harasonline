@@ -202,7 +202,7 @@ class HorseController extends Controller
 
                 $thumbPath = public_path().'/img/horses/thumbs/';
 
-                $image2->resize(350, null, function ($constraint) {
+                $image2->resize(null, 230, function ($constraint) {
 
                     $constraint->aspectRatio();
 
@@ -360,7 +360,7 @@ class HorseController extends Controller
 
                 $thumbPath = public_path().'/img/horses/thumbs/';
 
-                $image2->resize(350, null, function ($constraint) {
+                $image2->resize(null, 173, function ($constraint) {
 
                     $constraint->aspectRatio();
 

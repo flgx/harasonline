@@ -48,7 +48,7 @@
 
 						@endforeach
 
-							<div>
+							<div class="last-horses-img">
 
 								<img src="img/horses/thumbs/thumb_{{$myimage}}" alt="" class="img-responsive icon">
 
@@ -56,7 +56,7 @@
 
 							<h4 class="heading">
 
-								<a  class="title-index" href="{{route('horse.show',$horse->slug)}}">{{$horse->nombre}}</a>
+								{{$horse->nombre}}
 
 							</h4>
 
@@ -76,7 +76,9 @@
 
 									<li>Madre: {{$horse->madre}}.</li>								
 
-									<li>Ubicacion: {{$horse->ubicacion}}.</li>
+									<li>Ubicacion: {{$horse->ubicacion}}.</li>								
+
+									<li>Precio: ${{$horse->precio}}.</li>
 
 								</ul>
 

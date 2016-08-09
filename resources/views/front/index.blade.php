@@ -9,7 +9,7 @@
 				<div class="header-text">
 					<div class="row">
 						<div class="col-md-12 text-center">
-							<h3 class="light white">¿Buscas un caballo?</h3>
+							<h3 class="light white">¿Buscas un caballo de carreras?</h3>
 							<h1 class="white typed">Compra tu pura sangre con nosotros</h1>
 							<span class="typed-cursor">|</span>
 						</div>
@@ -22,7 +22,7 @@
 	<section id="productos" class="section section-padded">
 		<div class="container">
 			<div class="row text-center title">
-				<h2>Últimos productos agregados</h2>
+				<h2>Últimos caballos agregados</h2>
 				<h4 class="light muted">Hacer click para ver más informacion de los pura sangre.</h4>
 			</div>
 			<div class="row services">
@@ -39,7 +39,7 @@
 							$i++;
 						?>
 					@endforeach
-						<div>
+						<div class="last-horses-img" style="width:261px;">
 							<img src="img/horses/thumbs/thumb_{{$myimage}}" alt="" class="img-responsive icon">
 						</div>
 						<h4 class="heading">
@@ -54,7 +54,7 @@
 								<li>Padre: {{$horse->padre}}.</li>
 								<li>Madre: {{$horse->madre}}.</li>								
 								<li>Ubicacion: {{$horse->ubicacion}}.</li>
-								<li>Precio:${{$horse->precio}}.</li>
+								<li>Precio: ${{$horse->precio}}.</li>
 							</ul>
 							<p>{{ str_limit($horse->descripcion,50)}}</p>
 						<a href="{{route('horse.show',$horse->slug)}}">

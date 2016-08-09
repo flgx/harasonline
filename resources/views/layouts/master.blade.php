@@ -12,11 +12,11 @@
 
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
 
-	<title>Compra tu caballo de carrera aca | Harasonline</title>
+	<title>Haras Online - Comprar caballos de carreras</title>
 
-	<meta name="description" content="Compra pura sangre" />
+	<meta name="description" content="Compra y venta de spc en Argentina. Comprar caballos de carreras." />
 
-	<meta name="keywords" content="" />
+	<meta name="keywords" content="comprar caballos de carrera,comprar spc,argentina,spc,venta spc,comprar spc,venta de caballos de carreras,comprar pura sangre,venta pura sangre,harasonline,spc argentina,turf,caballos de carreras" />
 
 	<meta name="author" content="Codedoors.com" />
 
